@@ -1,0 +1,59 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: dolar
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cotacao_dolar_intent
+  - action: cotacao_dolar
+
+- story: euro
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cotacao_euro_intent
+  - action: cotacao_euro
+
+- story: data e hora
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: data_hora_intent
+  - action: data_hora
+
+- story: cep
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: pesquisar_cep_intent
+  - action: pesquisar_cep
+
