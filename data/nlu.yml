@@ -110,6 +110,14 @@ nlu:
 
 - intent: pesquisar_cep_intent
   examples: |
-    - pesquisar [CEP](cep)
-    - CEP [CEP](cep)
-    - Consultar [CEP](cep)
+    - pesquisar CEP
+    - CEP 
+    - Consultar CEP
+    - cep
+    
+
+- intent: informar_cep_intent
+  examples: |
+    - [68537-000](cep)
+    - Meu [59145-580](cep)
+    - é [59210-000](cep)

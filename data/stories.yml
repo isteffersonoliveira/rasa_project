@@ -50,10 +50,18 @@ stories:
   - intent: data_hora_intent
   - action: data_hora
 
-- story: cep
+- story: pesquisar cep
   steps:
   - intent: greet
   - action: utter_greet
   - intent: pesquisar_cep_intent
+  - action: utter_perguntar_cep
+  - intent: informar_cep_intent
+    entities:
+      - cep: 68537-000
+  - slot_was_set:
+      - cep: 68537-000
   - action: pesquisar_cep
+
+
 

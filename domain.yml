@@ -12,19 +12,24 @@ intents:
   - cotacao_dolar_intent
   - data_hora_intent
   - pesquisar_cep_intent
+  - informar_cep_intent
+
+entities:
+  - cep
+slots:
+   cep:
+      type: text
+      mappings:
+      - type: from_entity
+        entity: cep
+
 
 actions:
   - cotacao_dolar
   - cotacao_euro
   - data_hora
   - pesquisar_cep
-
-slots:
-  cep:
-    type: text
-    mappings:
-      - type: custom
-        entity: cep
+  - utter_perguntar_cep
 
 responses:
   utter_greet:
@@ -47,6 +52,10 @@ responses:
 
   utter_iamabot:
   - text: "Eu sou um bot, criado pelo framwork Rasa."
+
+  utter_perguntar_cep:
+    - text: "Qual CEP devo pesquisar? Exemplo: 68537-000"
+
 
 
 session_config:
