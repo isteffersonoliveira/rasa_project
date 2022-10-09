@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-cep",
+      "2": "I-cep",
+      "3": "L-cep",
+      "4": "U-cep",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-cep": 1,
+      "I-cep": 2,
+      "L-cep": 3,
+      "U-cep": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]
