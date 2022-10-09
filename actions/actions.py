@@ -101,32 +101,30 @@ class ActionCEP(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         cep = tracker.get_slot("cep")
-        if not cep:
-            dispatcher.utter_message(text="Não consegui encontrar seu CEP")
-        else:
-            try:
-                # The slot is not filled yet. Request the user to fill this slot next.
-                requisicao = requests.get(f'https://cdn.apicep.com/file/apicep/{cep}.json')
+        cep = str(cep)
+        try:
+            # The slot is not filled yet. Request the user to fill this slot next.
+            requisicao = requests.get(f'https://cdn.apicep.com/file/apicep/{cep}.json')
 
-                cep_pesquisado = requisicao.json()
+            cep_pesquisado = requisicao.json()
 
-                estado = cep_pesquisado['state']
-                cidade = cep_pesquisado['city']
-                distrito = cep_pesquisado['district']
-                rua = cep_pesquisado['address']
+            estado = cep_pesquisado['state']
+            cidade = cep_pesquisado['city']
+            distrito = cep_pesquisado['district']
+            rua = cep_pesquisado['address']
 
-                texto = f'''
-                        CEP Pesquisado -> {cep}
-                        ----------------------------------
-                        ESTADO: {estado}
-                        CIDADE: {cidade}
-                        DISTRITO: {distrito}
-                        RUA: {rua}
-                        ----------------------------------
-                        '''
-                dispatcher.utter_message(text=f"{texto}")
-            except:
-                dispatcher.utter_message(text=f"CEP NÃO ENCONTRADO!")
+            texto = f'''
+                    CEP Pesquisado -> {cep}
+                    ----------------------------------
+                    ESTADO: {estado}
+                    CIDADE: {cidade}
+                    DISTRITO: {distrito}
+                    RUA: {rua}
+                    ----------------------------------
+                    '''
+            dispatcher.utter_message(text=f"{texto}")
+        except:
+            dispatcher.utter_message(text=f"CEP NÃO ENCONTRADO!")
 
 
         return []
